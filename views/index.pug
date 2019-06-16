@@ -1,7 +1,10 @@
 extends ./layouts/common
 
 block content
-  if module === 'products'
-    include product/products
-  else
-    include modules/home
+  case module
+    when 'products'
+      include product/products
+    when 'addProduct'
+      include product/addProduct
+    default
+      include modules/home
