@@ -1,0 +1,7 @@
+extends ./layouts/common
+
+block content
+  if module === 'products'
+    include product/products
+  else
+    include modules/home

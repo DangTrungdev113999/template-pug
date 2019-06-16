@@ -1,0 +1,41 @@
+.row
+    // ==============================================================
+    // basic table
+    // ==============================================================
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            h5.card-header.text-center.text-capitalize Products list
+            .card-body.table-responsive
+                table.table
+                    thead
+                        tr
+                            th(scope='col') #
+                            th(scope='col') Product Name
+                            th(scope='col') Image
+                            th(scope='col') Content 
+                            th(scope='col') Category
+                            th(scope='col') Price
+                            th(scope='col') Sale Price
+                            th(scope='col') Status
+                            th(scope='col') Create
+                            th(scope='col') Action
+                    tbody
+                        each product, i in products
+                            tr
+                                th(scope='row')= i
+                                td= product.name
+                                td
+                                    img.img-responsive(src='', width='50', alt='')
+                                td= product.content
+                                td
+                                td= product.price
+                                td= product.sale_price
+                                td
+                                td
+                                td.btn-group-xs
+                                    a.badge.badge-success(href='')
+                                        i.fas.fa-street-view
+                                    a.badge.badge-primary(href='')
+                                        i.fas.fa-edit.fas-xs
+                                    a.badge.badge-danger(href='', onclick="return confirm('Are you sure want to delete it ?')")
+                                        i.fas.fa-trash-alt.fas-xs
