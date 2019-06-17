@@ -14,7 +14,6 @@
                             th(scope='col') #
                             th(scope='col') Product Name
                             th(scope='col') Image
-                            th(scope='col') Content 
                             th(scope='col') Category
                             th(scope='col') Price
                             th(scope='col') Sale Price
@@ -28,16 +27,15 @@
                                 td= product.name
                                 td
                                     img.img-responsive.img-thumbnail(src=product.image, width='50', alt='')
-                                td= product.content
                                 td
                                 td= product.price
                                 td= product.sale_price
                                 td= (product.status) ? 'shown' : 'hide'
                                 td
                                 td.btn-group-xs
-                                    a.badge.badge-success(href='/product/detail/' + product._id)
+                                    a.badge.badge-success(href='/product/productDetail/' + product._id)
                                         i.fas.fa-street-view
-                                    a.badge.badge-primary(href='/product/update/' + product._id)
+                                    a.badge.badge-primary(href='/product/updateProduct/' + product._id)
                                         i.fas.fa-edit.fas-xs
                                     a.badge.badge-danger(href='/product/delete/' + product._id, 
                                         onclick="return confirm('Are you sure want to delete it ?')")
