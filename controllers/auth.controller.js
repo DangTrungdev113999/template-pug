@@ -28,5 +28,11 @@ module.exports.postLogin = async (req, res, next) => {
         return;
     }
 
+    res.cookie('userId', user._id);
+    res.redirect('/');
+}
+
+module.exports.logout = async (req, res, next) => {
+    res.clearCookie('userId');
     res.redirect('/');
 }

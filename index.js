@@ -7,9 +7,10 @@ mongoose.connect('mongodb://localhost:27017/something', {
     useNewUrlParser: true
 });
 
-const productRouter = require('./routers/router.product.js');
-const userRouter = require('./routers/user.router.js');
-const authRouter = require('./routers/auth.router.js');
+const productRouter = require('./routers/router.product');
+const userRouter = require('./routers/user.router');
+const authRouter = require('./routers/auth.router');
+const loginMiddleware = require('./middleware/login.middleware');
 
 
 const app = express();
@@ -28,7 +29,7 @@ app.use(express.static('public'));
 
 const port = 3000;
 
-app.get('/', (req, res, next) => {
+app.get('/', loginMiddleware.requireLogin, (req, res, next) => {
     res.render('index.pug');
 });
 
@@ -36,6 +37,6 @@ app.use('/auth', authRouter);
 
 // app.use('/user', userRouter);
 
-app.use('/product', productRouter);
+app.use('/product', loginMiddleware.requireLogin, productRouter);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
