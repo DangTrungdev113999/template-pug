@@ -1,0 +1,19 @@
+.row
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            h5.card-header 
+                | Add new Products  
+                a.badge.badge-success(href='/product') products
+            .card-body
+                form#basicform( method='POST')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='price') Name
+                            input#price.form-control(type='text', name='name')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='sale_price') Phone
+                            input#sale_price.form-control(type='number', name='phone')
+                    .row
+                        .col-sm-6.pl-0.form-group
+                            button.btn.btn-outline-primary(type='submit') Add new

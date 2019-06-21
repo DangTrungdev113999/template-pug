@@ -29,8 +29,28 @@ app.use(express.static('public'));
 
 const port = 3000;
 
-app.get('/', loginMiddleware.requireLogin, (req, res, next) => {
-    res.render('index.pug');
+app.get('/', loginMiddleware.requireLogin,
+    (req, res, next) => {
+        res.render('index.pug');
+    });
+
+app.get('/test', (req, res, next) => {
+    res.render('index.pug', {
+        module : 'test'
+    });
+})
+
+const Test = require('./models/test.model');
+app.post('/test', (req, res, next) => {
+    const name = req.body.name;
+    const phone = req.body.phone;
+
+    const data = new Test({
+        name,
+        phone
+    });
+    data.save();
+    res.redirect('/');
 });
 
 app.use('/auth', authRouter);
