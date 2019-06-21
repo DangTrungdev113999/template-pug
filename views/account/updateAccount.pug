@@ -1,0 +1,33 @@
+.row
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            h5.card-header 
+                | Update Account  
+                a.badge.badge-success(href='/account') exit
+            .card-body
+                form#basicform(action='', method='POST',  enctype="multipart/form-data")
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='name') Account name
+                            input#name.form-control(type='text',value= account.name, name='name', placeholder='Enter the Account name')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='image') Avatar image
+                            input#image.form-control(type='file', name='image')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='email') Email
+                            input#email.form-control(type='text',value= account.email, name='email', placeholder='Enter the email of product')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='phone') Phone
+                            input#phone.form-control(type='number', value= account.phone,  name='phone', placeholder='Enter the sale proce of product')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='birthDay') Birthday
+                            input#birthDay.form-control(type='date', name='birthday',selected,  placeholder='Enter the created')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='lever') lever
+                            input#lever.form-control(type='Number',value= account.lever,  name='lever',  placeholder='Enter the lever')
+                    .row
+                        .col-sm-12.pl-0
+                            p.text-right
+                                button.btn.btn-outline-primary(type='submit') Add new

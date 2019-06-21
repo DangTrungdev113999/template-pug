@@ -3,7 +3,7 @@ const multer  = require('multer');
 
 const controller = require('../controllers/product.controller.js');
 
-const upload = multer({ dest: './public/uploads/' });
+const upload = multer({ dest: './public/uploads/product' });
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ router.post('/addProduct',
             upload.single('image'), 
             controller.postproductInfo);
 
-router.get('/delete/:productId', controller.deleteProduct);
+router.get('/deleteProduct/:productId', controller.deleteProduct);
 
 router.get('/productDetail/:productId', controller.productDetail);
 

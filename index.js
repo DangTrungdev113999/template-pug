@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/something', {
 });
 
 const productRouter = require('./routers/router.product');
-const userRouter = require('./routers/user.router');
+const accountRouter = require('./routers/account.router');
 const authRouter = require('./routers/auth.router');
 const loginMiddleware = require('./middleware/login.middleware');
 
@@ -30,10 +30,15 @@ app.use(express.static('public'));
 const port = 3000;
 
 app.get('/', loginMiddleware.requireLogin,
-    (req, res, next) => {
-        res.render('index.pug');
-    });
+(req, res, next) => {
+    res.render('index.pug');
+});
 
+app.use('/auth', authRouter);
+app.use('/product', loginMiddleware.requireLogin, productRouter);
+app.use('/account', loginMiddleware.requireLogin, accountRouter);
+
+// -----------------------------------------
 app.get('/test', (req, res, next) => {
     res.render('index.pug', {
         module : 'test'
@@ -53,10 +58,6 @@ app.post('/test', (req, res, next) => {
     res.redirect('/');
 });
 
-app.use('/auth', authRouter);
-
-// app.use('/user', userRouter);
-
-app.use('/product', loginMiddleware.requireLogin, productRouter);
+// -----------------------------------------
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));

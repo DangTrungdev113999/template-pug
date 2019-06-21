@@ -12,5 +12,11 @@ block content
       include product/updateProduct
     when 'test'
       include product/test
+    when 'accounts'
+      include account/accounts
+    when 'addAccount'
+      include account/addAccount
+    when 'updateAccount'
+      include account/updateAccount
     default
       include modules/home
