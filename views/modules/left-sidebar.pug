@@ -65,6 +65,17 @@
                   a.nav-link(href='/account') Account list
                 li.nav-item
                   a.nav-link(href='/account/addAccount') Add Account
+
+            a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', 
+            data-target='#submenu-12', aria-controls='submenu-12')
+              i.fas.fa-f.fa-folder
+              | Banner
+            #submenu-12.collapse.submenu(style='')
+              ul.nav.flex-column
+                li.nav-item
+                  a.nav-link(href='/banner') Banner list
+                li.nav-item
+                  a.nav-link(href='/banner/addBanner') Add Banner
                 //- li.nav-item
                 //-   a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', 
                 //-   data-target='#submenu-11', aria-controls='submenu-11') Level 2

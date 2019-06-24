@@ -7,10 +7,11 @@ mongoose.connect('mongodb://localhost:27017/something', {
     useNewUrlParser: true
 });
 
-const productRouter = require('./routers/router.product');
-const accountRouter = require('./routers/account.router');
 const authRouter = require('./routers/auth.router');
 const loginMiddleware = require('./middleware/login.middleware');
+const productRouter = require('./routers/router.product');
+const accountRouter = require('./routers/account.router');
+const bannerRouter = require('./routers/banner.router');
 
 
 const app = express();
@@ -37,6 +38,7 @@ app.get('/', loginMiddleware.requireLogin,
 app.use('/auth', authRouter);
 app.use('/product', loginMiddleware.requireLogin, productRouter);
 app.use('/account', loginMiddleware.requireLogin, accountRouter);
+app.use('/banner', loginMiddleware.requireLogin, bannerRouter);
 
 // -----------------------------------------
 app.get('/test', (req, res, next) => {

@@ -9,14 +9,22 @@ block content
     when 'productDetail'
       include product/productDetail
     when 'updateProduct'
+    
       include product/updateProduct
-    when 'test'
-      include product/test
     when 'accounts'
       include account/accounts
     when 'addAccount'
       include account/addAccount
     when 'updateAccount'
       include account/updateAccount
+
+    when 'banners'
+      include banner/banners
+    when 'addBanner'
+      include banner/addBanner
+    when 'updateBanner'
+      include banner/updateBanner
+    when 'test'
+      include product/test
     default
       include modules/home
