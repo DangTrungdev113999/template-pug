@@ -25,9 +25,14 @@
                         textarea#content.form-control(name='content', placeholder='Enter the discription', rows='10', cols='50')=banner.content
                     .row
                         .col-sm-6.pb-2.pb-sm-4.pb-lg-0.pr-0
-                            label.be-checkbox.custom-control.custom-checkbox
-                                input.custom-control-input(type='checkbox', name='status', value='1')
-                                span.custom-control-label status
+                            if banner.status === 1
+                                label.be-checkbox.custom-control.custom-checkbox
+                                    input#status.custom-control-input(type='checkbox',name='status',  checked,  value = '1')
+                                    span.custom-control-label Status
+                            else    
+                                label.be-checkbox.custom-control.custom-checkbox
+                                    input#status.custom-control-input(type='checkbox',name='status', value = '1')
+                                    span.custom-control-label Status
                         .col-sm-6.pl-0
                             p.text-right
-                                button.btn.btn-outline-primary(type='submit', name='addNew') Add new
+                                button.btn.btn-outline-primary(type='submit', name='addNew') update

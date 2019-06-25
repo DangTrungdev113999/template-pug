@@ -22,10 +22,29 @@ module.exports.postBanner = async (req, res, next) => {
 
 module.exports.updateBanner = async (req, res, next) => {
     const id = req.params.bannerId;
-    const banner = Banner.findById(id);
+    const banner = await Banner.findById(id);
 
     res.render('index.pug', {
         module: 'updateBanner',
         banner
     })
+}
+
+module.exports.postUpdateBanner = async (req, res, next) => {
+    const id = req.params.bannerId;
+    const banner = await Banner.findById(id);
+
+    req.body.image = (req.file) ? 
+                    (req.file.path.split('\\').slice(1).join('\\')) : 
+                    banner.image;
+
+    await Banner.update(banner, req.body).exec((error, result) => {});
+
+    res.redirect('/banner');
+}
+
+module.exports.deleteBanner = async (req, res, next) => {
+    const id = req.params.bannerId;
+    await Banner.remove({_id: id}).exec((error, result) => {});
+    res.redirect('/banner');
 }

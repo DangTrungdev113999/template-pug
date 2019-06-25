@@ -14,5 +14,10 @@ router.post('/addBanner',
             controller.postBanner);
 
 router.get('/updateBanner/:bannerId', controller.updateBanner);
+router.post('/updateBanner/:bannerId', 
+            upload.single('image'), 
+            controller.postUpdateBanner);
+
+router.get('/deleteBanner/:bannerId', controller.deleteBanner);
 
 module.exports = router;
