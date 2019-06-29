@@ -1,0 +1,40 @@
+.row
+    // ==============================================================
+    // basic table
+    // ==============================================================
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            h5.card-header.text-capitalize
+                | Products list  
+                a.badge.badge-success(href='/account/addAccount') Add Account
+            .card-body.table-responsive
+                table.table
+                    thead
+                        tr
+                            th(scope='col') #
+                            th(scope='col') Account Name
+                            th(scope='col') Image
+                            th(scope='col') Phone
+                            th(scope='col') email
+                            th(scope='col') Birthday
+                            th(scope='col') Lever
+                            th(scope='col') Action
+                    tbody
+                        each account, i in accounts
+                            tr
+                                th(scope='row')= i
+                                td= account.name
+                                td
+                                    img.img-responsive.img-thumbnail(src=account.image, width='50', alt='')
+                                td= account.phone
+                                td= account.email
+                                td= account.birthday
+                                td= account.lever
+                                td.btn-group-xs
+                                    a.badge.badge-success(href='/admin/account/accountDetail/' + account._id)
+                                        i.fas.fa-street-view
+                                    a.badge.badge-primary(href='/admin/account/updateAccount/' + account._id)
+                                        i.fas.fa-edit.fas-xs
+                                    a.badge.badge-danger(href='/admin/account/deleteAccount/' + account._id, 
+                                        onclick="return confirm('Are you sure want to delete it ?')")
+                                        i.fas.fa-trash-alt.fas-xs

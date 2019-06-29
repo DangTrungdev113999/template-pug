@@ -1,0 +1,37 @@
+// jquery library
+script(src='/user/js/vendor/jquery-1.11.2.min.js')
+// bootstrap
+script(src='/user/js/bootstrap.js')
+// uikit
+script(src='/user/js/uikit.min.js')
+// slicknav menu
+script(src='/user/js/jquery.slicknav.min.js')
+// owl carousel
+script(src='/user/js/owl.carousel.min.js')
+// rev slider
+script(src='/user/js/rev-slider/jquery.themepunch.plugins.min.js')
+script(src='/user/js/rev-slider/jquery.themepunch.revolution.min.js')
+script(src='/user/js/rev-slider/rs.home.js')
+// plugins from boilerplate
+script(src='/user/js/plugins.js')
+// WOW Animation
+script(src='/user/js/wow.min.js')
+// Activating WOW Animation only for modern browser
+// [if !IE] <!
+script(type='text/javascript').
+    new WOW().init();
+// <![endif]
+// Oh Yes, IE 9+ Supports animation, lets activate for IE 9+
+//if gte IE 9
+    script(type='text/javascript').
+        new WOW().init();
+// Opacity & Other IE fix for older browser
+//if lte IE 8
+    script(type='text/javascript', src='/user/js/ie-opacity-polyfill.js')
+// my js
+script(src='/user/js/main.js')
+script.
+    $( ".m_nav" ).click(function() {
+    $( "#cssmenu" ).slideToggle( "slow", function() {});
+    });
+// Mirrored from demo.hasthemes.com/cruise-fashion/cruise/index.html?fbclid=IwAR2pNVNvugm6IgWlg8HpnN2FueRO3AVlGBI31vWqPe6aKcGj8cxtjP71uYo by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 May 2019 05:33:54 GMT

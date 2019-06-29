@@ -1,0 +1,33 @@
+.row
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            h5.card-header 
+                | Add new Banner 
+                a.badge.badge-success(href='/admin/banner') Banners
+            .card-body
+                form#basicform(action='', name='banner', method='POST',  enctype="multipart/form-data" )
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-1s2.col-sm-12.col-12
+                            label(for='name') Banner name
+                            input#name.form-control(type='text', name='name', placeholder='Enter the banner name')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label(for='image') Banner image
+                            input#image.form-control(type='file', name='image')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label(for='ordering') ordering
+                            input#ordering.form-control(type='number', name='ordering', placeholder='Enter the ordering of banner')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label(for='created') created
+                            input#created.form-control(type='date', name='created', value='', placeholder='Enter the created')
+                    .form-group
+                        label(for='content') Content
+                        textarea#content.form-control(name='content', placeholder='Enter the discription', rows='10', cols='50')
+                    .row
+                        .col-sm-6.pb-2.pb-sm-4.pb-lg-0.pr-0
+                            label.be-checkbox.custom-control.custom-checkbox
+                                input.custom-control-input(type='checkbox', name='status', value='1')
+                                span.custom-control-label status
+                        .col-sm-6.pl-0
+                            p.text-right
+                                button.btn.btn-outline-primary(type='submit', name='addNew') Add new

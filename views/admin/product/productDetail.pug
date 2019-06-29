@@ -1,0 +1,62 @@
+.row
+    .offset-xl-2.col-xl-8.col-lg-12.col-md-12.col-sm-12.col-12
+        .row
+            .col-xl-6.col-lg-6.col-md-6.col-sm-12.col-12.pr-xl-0.pr-lg-0.pr-md-0.m-b-30
+                .product-slider
+                    #productslider-1.product-carousel.carousel.slide(data-ride='carousel')
+                        ol.carousel-indicators
+                            li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+                            li(data-target='#carouselExampleIndicators', data-slide-to='1')
+                            li(data-target='#carouselExampleIndicators', data-slide-to='2')
+                        .carousel-inner
+                            .carousel-item.active
+                                img.d-block.image-reponsive(src="http://localhost:3000/" + product.image, 
+                                                                alt='First slide', height=315, width= 285)
+                            .carousel-item
+                                img.d-block.image-reponsive(src="http://localhost:3000/" +  product.image, 
+                                                                alt='Second slide', height=315, width= 285)
+                            .carousel-item
+                                img.d-block.image-reponsive(src="http://localhost:3000/" +  product.image, 
+                                                                alt='Third slide', height=315, width= 285)
+                        a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+                            span.carousel-control-prev-icon(aria-hidden='true')
+                            span.sr-only Previous
+                        a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+                            span.carousel-control-next-icon(aria-hidden='true')
+                            span.sr-only Next
+            .col-xl-6.col-lg-6.col-md-6.col-sm-12.col-12.pl-xl-0.pl-lg-0.pl-md-0.border-left.m-b-30
+                .product-details
+                    .border-bottom.pb-3.mb-3
+                        h2.mb-3= product.name
+                        if product.sale_price
+                            h3.mb-0.text-primary
+                                | Sale price: $
+                                span= product.sale_price
+                            h3.mb-0.text-gray
+                                | Price: $
+                                strike= product.price
+                        else
+                            h3.mb-0.text-primary
+                                | Price: $
+                                span= product.price
+                    .product-colors.border-bottom
+                        h4 Colors
+                        input#radio-1.radio(type='radio', name='group')
+                        label(for='radio-1')
+                        input#radio-2.radio(type='radio', name='group')
+                        label(for='radio-2')
+                        input#radio-3.radio(type='radio', name='group')
+                        label(for='radio-3')
+                    .product-size.border-bottom
+                        h4 Size
+                        .btn-group(role='group', aria-label='First group')
+                            button.btn.btn-outline-light(type='button') SM
+                            button.btn.btn-outline-light(type='button') L
+                            button.btn.btn-outline-light(type='button') XL
+                            button.btn.btn-outline-light(type='button') XXl
+            .col-xl-6.col-lg-6.col-md-6.col-sm-12.col-12.pl-xl-0.pl-lg-0.pl-md-0.m-b-30
+                .product-description
+                    h4.mb-1 Descriptions
+                    p= product.content
+                    img.img-thumbnail(src= product.image, alt="")
+                

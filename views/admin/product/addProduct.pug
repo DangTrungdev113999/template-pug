@@ -1,0 +1,59 @@
+.row
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            h5.card-header 
+                | Add new Products  
+                a.badge.badge-success(href='/admin/product') products
+            .card-body
+                form#basicform(action='', method='POST',  enctype="multipart/form-data")
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='name') Product name
+                            input#name.form-control(type='text', name='name', placeholder='Enter the category name')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='category_id', name='category') Category
+                            select#category_id.form-control()
+                                option(value='') --Choose category type--
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            .form-group
+                                label.text-dark(for='image') Avatar image
+                                input#image.form-control(type='file', name='image')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            .form-group
+                                label.text-dark(for='image', name='images') Product image
+                                input#image.form-control(type='file',multiple='')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='price') Price
+                            input#price.form-control(type='number', name='price', placeholder='Enter the price of product')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            label.text-dark(for='sale_price') Sale price
+                            input#sale_price.form-control(type='number', name='sale_price', placeholder='Enter the sale proce of product')
+                    .row
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            div Color
+                            .checkbox.d-inline-block.ml-3
+                                label.be-checkbox.custom-control.custom-checkbox
+                                    input.custom-control-input(type='checkbox', name='color[]'  value="")
+                                    span.custom-control-label(style='background: red; height: 25px; width: 25px; border-radius: 100%; display: inline-block;box-shadow: 2px 2px 3px gray;')
+                        .form-group.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                            div Size
+                            .checkbox.d-inline-block.ml-3
+                                label.be-checkbox.custom-control.custom-checkbox
+                                    input.custom-control-input(type='checkbox',name = 'size[]'  value="")
+                                    span.custom-control-label
+                    .form-group
+                        label.text-dark(for='created') created
+                        input#created.form-control(type='date', name='created',  value='', placeholder='Enter the created')
+                    .form-group
+                        label.text-dark(for='content') Content
+                        textarea#content.form-control(name='content', placeholder='Enter the discription', rows='10', cols='50')
+                    .row
+                        .col-sm-6.pb-2.pb-sm-4.pb-lg-0.pr-0
+                            label.be-checkbox.custom-control.custom-checkbox
+                                input#status.custom-control-input(type='checkbox',name='status', value='1')
+                                span.custom-control-label Status
+                        .col-sm-6.pl-0
+                            p.text-right
+                                button.btn.btn-outline-primary(type='submit') Add new

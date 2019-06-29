@@ -1,7 +1,7 @@
 const User = require('../models/user.model');
 
 module.exports.login = (req, res, next) => {
-    res.render('auth/login');
+    res.render('admin/auth/login');
 }
 
 module.exports.postLogin = async (req, res, next) => {
@@ -29,10 +29,10 @@ module.exports.postLogin = async (req, res, next) => {
     }
 
     res.cookie('userId', user._id);
-    res.redirect('/');
+    res.redirect('/admin');
 }
 
 module.exports.logout = async (req, res, next) => {
     res.clearCookie('userId');
-    res.redirect('/');
+    res.redirect('/admin');
 }

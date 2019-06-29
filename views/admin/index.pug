@@ -1,0 +1,28 @@
+extends ./layouts/common
+
+block content
+  case module
+    when 'products'
+      include product/products
+    when 'addProduct'
+      include product/addProduct
+    when 'productDetail'
+      include product/productDetail
+    when 'updateProduct'
+    
+      include product/updateProduct
+    when 'accounts'
+      include account/accounts
+    when 'addAccount'
+      include account/addAccount
+    when 'updateAccount'
+      include account/updateAccount
+
+    when 'banners'
+      include banner/banners
+    when 'addBanner'
+      include banner/addBanner
+    when 'updateBanner'
+      include banner/updateBanner
+    default
+      include modules/home
