@@ -35,7 +35,7 @@ const port = 3000;
 app.get('/admin', loginMiddleware.requireLogin,
 (req, res, next) => {
     res.render('admin/index.pug');
-});
+}); 
 app.use('/admin/auth', authRouter);
 app.use('/admin/product', loginMiddleware.requireLogin, productRouter);
 app.use('/admin/account', loginMiddleware.requireLogin, accountRouter);
